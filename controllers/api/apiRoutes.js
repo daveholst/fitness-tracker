@@ -19,8 +19,8 @@ router.get('/workouts', async (req, res) => {
 router.post('/workouts', async (req, res) => {
   const exercise = new Exercise(req.body);
   try {
-    await Exercise.create(exercise);
-    res.json('exercise created');
+    const newWorkout = await Exercise.create(exercise);
+    res.json(newWorkout);
   } catch (error) {
     console.error(error);
     res.status(500).json('could not create exercise');
