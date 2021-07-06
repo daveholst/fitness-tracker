@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
@@ -15,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 app.use('/api', routes);
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/custommethods", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 app.listen(PORT, () => {
