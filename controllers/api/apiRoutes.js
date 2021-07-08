@@ -27,4 +27,19 @@ router.post('/workouts', async (req, res) => {
   }
 });
 
+// update a workout
+router.put('/workouts/:id', async (req, res) => {
+  const { id } = req.params;
+  const newWorkoutData = req.body;
+  try {
+    const data = await Exercise.findByIdAndUpdate(id, newWorkoutData, {
+      new: true,
+    });
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json('could not update workout');
+  }
+});
+
 module.exports = router;
