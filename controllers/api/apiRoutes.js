@@ -51,4 +51,16 @@ router.put('/workouts/:id', async (req, res) => {
   }
 });
 
+// get stats
+router.get('/workouts/range', async (req, res) => {
+  try {
+    const allWorkoutData = await Workout.find({}).populate('exercises');
+    console.log(allWorkoutData);
+    res.send(allWorkoutData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json('could not get workout data');
+  }
+});
+
 module.exports = router;
