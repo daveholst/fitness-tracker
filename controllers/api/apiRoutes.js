@@ -18,9 +18,9 @@ router.get('/workouts', async (req, res) => {
 
 // create a workout -- Creates a blank workout with NO exercise data
 router.post('/workouts', async (req, res) => {
-  const exercise = new Exercise(req.body);
+  const workoutData = new Exercise(req.body);
   try {
-    const newWorkout = await Workout.create(exercise);
+    const newWorkout = await Workout.create(workoutData);
     res.json(newWorkout);
   } catch (error) {
     console.error(error);
@@ -31,14 +31,14 @@ router.post('/workouts', async (req, res) => {
 // update a workout
 router.put('/workouts/:id', async (req, res) => {
   const { id } = req.params;
-  const newExerciseData = await Exercise.create(req.body);
+  // const newExerciseData = await Exercise.create(req.body);
   // const newExerciseData = req.body;
-  console.log(newExerciseData);
+  // console.log(newExerciseData);
   try {
     const data = await Workout.findByIdAndUpdate(
       id,
       {
-        $push: { exercises: newExerciseData._id },
+        $push: { exercises: req.body },
       },
       {
         new: true,
@@ -54,7 +54,7 @@ router.put('/workouts/:id', async (req, res) => {
 // get stats
 router.get('/workouts/range', async (req, res) => {
   try {
-    const allWorkoutData = await Workout.find({}).populate('exercises');
+    const allWorkoutData = await Workout.find({});
     console.log(allWorkoutData);
     res.send(allWorkoutData);
   } catch (error) {
