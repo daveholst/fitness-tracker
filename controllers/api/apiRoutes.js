@@ -17,10 +17,8 @@ router.get('/workouts', async (req, res) => {
 
 // create a workout -- Creates a blank workout with NO exercise data
 router.post('/workouts', async (req, res) => {
-  // const workoutData = new Exercise(req.body);
   try {
     const newWorkout = await Workout.create(req.body);
-    console.log(newWorkout);
     res.json(newWorkout);
   } catch (error) {
     console.error(error);
