@@ -3,11 +3,13 @@ const router = require('express').Router();
 // bring in Workout model
 const Workout = require('../../models/Workout');
 
-// TODO API routes in here!
 // get all workouts
 router.get('/workouts', async (req, res) => {
   try {
     const allWorkouts = await Workout.find({});
+    allWorkouts.forEach((workout) => {
+      workout.totalDurationCounter();
+    });
     res.send(allWorkouts);
   } catch (error) {
     console.error(error);
@@ -51,6 +53,9 @@ router.put('/workouts/:id', async (req, res) => {
 router.get('/workouts/range', async (req, res) => {
   try {
     const allWorkoutData = await Workout.find({});
+    allWorkoutData.forEach((workout) => {
+      workout.totalDurationCounter();
+    });
     res.send(allWorkoutData);
   } catch (error) {
     console.error(error);
