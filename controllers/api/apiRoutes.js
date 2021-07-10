@@ -1,7 +1,6 @@
 const router = require('express').Router();
 
-// bring in Exercise model
-const Exercise = require('../../models/Exercise');
+// bring in Workout model
 const Workout = require('../../models/Workout');
 
 // TODO API routes in here!
@@ -31,9 +30,6 @@ router.post('/workouts', async (req, res) => {
 // update a workout
 router.put('/workouts/:id', async (req, res) => {
   const { id } = req.params;
-  // const newExerciseData = await Exercise.create(req.body);
-  // const newExerciseData = req.body;
-  // console.log(newExerciseData);
   try {
     const data = await Workout.findByIdAndUpdate(
       id,
@@ -55,7 +51,6 @@ router.put('/workouts/:id', async (req, res) => {
 router.get('/workouts/range', async (req, res) => {
   try {
     const allWorkoutData = await Workout.find({});
-    console.log(allWorkoutData);
     res.send(allWorkoutData);
   } catch (error) {
     console.error(error);

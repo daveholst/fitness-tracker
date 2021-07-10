@@ -1,4 +1,4 @@
+// added in for seed data to work.
 module.exports = {
-  Exercise: require('./Exercise'),
   Workout: require('./Workout'),
 };

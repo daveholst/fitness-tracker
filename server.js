@@ -8,10 +8,9 @@ const routes = require('./controllers');
 
 const app = express();
 
-// TODO: add models
-
 const PORT = process.env.PORT || 3000;
 
+// express midleware
 app.use(logger('dev'));
 
 app.use(express.json());
@@ -21,12 +20,14 @@ app.use(express.static(path.join(__dirname, 'public/')));
 
 app.use(routes);
 
+// connect to database
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
 });
 
+// start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}!`);
 });
