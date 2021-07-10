@@ -19,7 +19,7 @@ A live deploy of this app can be found on Heroku at: https://holst-fitness-track
 
 #### Animated Gif Screenshot:
 
-![gif of tech blog](./assets/tech-blog.gif)
+![gif of fitness tracker](./assets/fitness-tracker.gif)
 
 ## Technology Stack
 
