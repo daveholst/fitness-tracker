@@ -12,5 +12,13 @@ router.get('/exercise', async (req, res) => {
     res.status(500);
   }
 });
-
+// stats page routing
+router.get('/stats', async (req, res) => {
+  try {
+    res.sendFile(path.join(__dirname, '../public/stats.html'));
+  } catch (error) {
+    console.error(error);
+    res.status(500);
+  }
+});
 module.exports = router;

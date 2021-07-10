@@ -16,7 +16,8 @@ function calculateTotalWeight(data) {
 }
 
 function populateChart(data) {
-  const durations = data.map(({ totalDuration }) => totalDuration);
+  //! had to change this to get data to map correctly for duration graph
+  const durations = data.map((workout) => workout.exercises[0].duration);
   const pounds = calculateTotalWeight(data);
 
   const line = document.querySelector('#canvas').getContext('2d');
@@ -33,7 +34,7 @@ function populateChart(data) {
     }).format(date);
   });
 
-  let lineChart = new Chart(line, {
+  const lineChart = new Chart(line, {
     type: 'line',
     data: {
       labels,
@@ -61,7 +62,7 @@ function populateChart(data) {
     },
   });
 
-  let barChart = new Chart(bar, {
+  const barChart = new Chart(bar, {
     type: 'bar',
     data: {
       labels,

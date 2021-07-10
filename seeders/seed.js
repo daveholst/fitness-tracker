@@ -1,7 +1,8 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const db = require('../models');
 
-mongoose.connect('mongodb://fitness:fitness@localhost/fitnessTracker', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
