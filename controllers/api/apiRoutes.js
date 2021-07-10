@@ -7,7 +7,7 @@ const Workout = require('../../models/Workout');
 // get all workouts
 router.get('/workouts', async (req, res) => {
   try {
-    const allWorkouts = await Exercise.find({});
+    const allWorkouts = await Workout.find({});
     res.send(allWorkouts);
   } catch (error) {
     console.error(error);
@@ -17,9 +17,10 @@ router.get('/workouts', async (req, res) => {
 
 // create a workout -- Creates a blank workout with NO exercise data
 router.post('/workouts', async (req, res) => {
-  const workoutData = new Exercise(req.body);
+  // const workoutData = new Exercise(req.body);
   try {
-    const newWorkout = await Workout.create(workoutData);
+    const newWorkout = await Workout.create(req.body);
+    console.log(newWorkout);
     res.json(newWorkout);
   } catch (error) {
     console.error(error);
@@ -27,9 +28,10 @@ router.post('/workouts', async (req, res) => {
   }
 });
 
-// update a workout
+// update a workout -- adds an axercise
 router.put('/workouts/:id', async (req, res) => {
   const { id } = req.params;
+  console.log(id);
   try {
     const data = await Workout.findByIdAndUpdate(
       id,
