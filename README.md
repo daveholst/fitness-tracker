@@ -1,17 +1,10 @@
 # Fitness Tracker
 
-This is a blogging platform with a live deploy on Heroku with the following features.
-
-- Session based Authentication with hashed passwords stored in database.
-- Users can create accounts and login.
-- Posts can be created, deleted and edited by the author.
-- Comments can be created, deleted and edited by the author.
-- Each user has a customized dashboard that allows them to manage their posts and comments.
+This is a fitness tracking app that allows multiple types of exercises to be recorded on a single session. It allows the users to stats in the form of graphs about their workouts over time. All frontend code was supplied.
 
 ## Table of Contents:
 
 - [Live Deploy](#Live-Deploy)
-- [License](#License)
 - [Screenshots](#Screenshots)
 - [Technology Stack](#Technology-Stack)
 - [Usage](#Usage)
@@ -22,12 +15,6 @@ This is a blogging platform with a live deploy on Heroku with the following feat
 
 A live deploy of this app can be found on Heroku at: https://holst-fitness-tracker.herokuapp.com/
 
-## License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-This project is licensed under the **MIT License**: https://opensource.org/licenses/MIT
-
 ## Screenshots
 
 #### Animated Gif Screenshot:
@@ -37,17 +24,14 @@ This project is licensed under the **MIT License**: https://opensource.org/licen
 ## Technology Stack
 
 - heroku: https://www.heroku.com/
-- JawsDB(mySQL): https://www.jawsdb.com/
-- Bulma CSS: https://bulma.io/documentation/
-- axios: https://github.com/axios/axios
-- expressJS: http://expressjs.com/
-- mysql2: https://www.npmjs.com/package/mysql2
-- Sequelize ORM: https://sequelize.org/
+- mongo atlas: https://www.mongodb.com/cloud/atlas
+- mongoose: https://www.npmjs.com/package/mongoose
+- express: https://www.npmjs.com/package/express
 - WesBos Linting Config: https://github.com/wesbos/eslint-config-wesbos
 
 ## Usage
 
-This software needs access to a mySQL database for storage of persistent information. `./conf/connection.js` should be edited to reflect the settings of the chosen server. For local deployment/testing all database credentials should be stored in `.env`.
+This software needs access to a mongoDB database for storage of persistent information. For local deployment/testing all database credentials should be stored in `.env`. An example has been provided.
 
 To use the program simply run the program from your preferred terminal and follow the prompts.
 
